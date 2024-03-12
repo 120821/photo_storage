@@ -1,6 +1,6 @@
 <h1>New Photo</h1>
 
-<%= form_with(model: @photo, url: photos_path, local: true) do |form| %>
+<%= form_with(model: @photo, url: photos_path, multipart: true) do |form| %>
   <div>
     <%= form.label :filename %>
     <%= form.text_field :filename %>
@@ -17,13 +17,8 @@
   </div>
 
   <div>
-    <%= form.label :upload_time %>
-    <%= form.datetime_field :upload_time %>
-  </div>
-
-  <div>
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.label :image_data %>
+    <%= form.file_field :image_data %>
   </div>
 
   <div>

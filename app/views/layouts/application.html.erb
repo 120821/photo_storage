@@ -3,14 +3,23 @@
   <head>
     <title>PhotoStorage</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <div class="notice-container">
+      <% flash.each do |type, message| %>
+        <% if type == "notice" %>
+          <div class="notice"><%= message %></div>
+        <% end %>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

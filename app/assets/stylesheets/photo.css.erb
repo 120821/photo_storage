@@ -1,0 +1,86 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+  max-width: 1200px;
+  background-image: url('/assets/blue.jpeg');
+  height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar form {
+  display: flex;
+  flex-direction: row; /* 修改为 row */
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+}
+.search-bar input[type="text"] {
+  width: 300px;
+  height: 30px;
+  padding: 5px;
+}
+
+.search-bar button {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/*
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.image-item {
+  max-width: 330px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+*/
+
+.image-preview {
+  width: 100%;
+  height: auto;
+}
+
+.image-info {
+  margin-top: 10px;
+}
+
+.image-info h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.image-info p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-gap: 20px;
+}
+
+.image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}

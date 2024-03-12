@@ -1,11 +1,26 @@
-<h1>Photos</h1>
-
-<% @photos.each do |photo| %>
-  <div>
-    <h3><%= photo.filename %></h3>
-    <p>Tags: <%= photo.tags %></p>
-    <p>Description: <%= photo.description %></p>
-    <p>Upload Time: <%= photo.upload_time %></p>
-    <p>Location: <%= photo.location %></p>
+<div class="container">
+  <%= link_to "上传", new_photo_path %>
+  <div class="search-bar">
+    <form>
+      <input type="text" placeholder="搜索图片">
+      <button type="submit">搜索</button>
+    </form>
+    热门搜索： 壁纸 头像 手抄报 高清美图
   </div>
-<% end %>
+  <div class="image-grid">
+    <% @photos.each do |photo| %>
+      <div class="image-item">
+        <%= image_tag photo.image_data.url, style: 'max-width: 330px;' %>
+
+        <div class="image-info">
+          <h4><%= photo.filename %></h4>
+          <p>标签： <%= photo.tags %></p>
+          <p>描述： <%= photo.description %></p>
+          <!--
+          <p>上传时间： <%= photo.upload_time %></p>
+          -->
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
