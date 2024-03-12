@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  filename: MyString
+  tags: MyString
+  description: MyText
+  upload_time: 2024-03-12 09:18:33
+  location: MyString
+
+two:
+  filename: MyString
+  tags: MyString
+  description: MyText
+  upload_time: 2024-03-12 09:18:33
+  location: MyString

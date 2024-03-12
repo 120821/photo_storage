@@ -1,0 +1,11 @@
+<h1>Photos</h1>
+
+<% @photos.each do |photo| %>
+  <div>
+    <h3><%= photo.filename %></h3>
+    <p>Tags: <%= photo.tags %></p>
+    <p>Description: <%= photo.description %></p>
+    <p>Upload Time: <%= photo.upload_time %></p>
+    <p>Location: <%= photo.location %></p>
+  </div>
+<% end %>
