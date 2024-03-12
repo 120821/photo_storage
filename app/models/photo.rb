@@ -1,5 +1,6 @@
 require 'image_uploader'
 class Photo < ApplicationRecord
+  has_and_belongs_to_many :pets
   mount_uploader :image_data, ImageUploader
   # 这里可以添加与其他模型的关联关系，如用户表等
   # 暂时不使用用户
