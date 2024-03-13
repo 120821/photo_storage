@@ -1,27 +1,36 @@
-<h1>New Photo</h1>
+<div class="photo_new">
+  <h1>上传图片</h1>
 
-<%= form_with(model: @photo, url: photos_path, multipart: true) do |form| %>
-  <div>
-    <%= form.label :filename %>
-    <%= form.text_field :filename %>
-  </div>
+  <%= form_with(model: @photo, url: photos_path, multipart: true) do |form| %>
+    <div>
+      <%= form.label "文件名称" %>
+      <%= form.text_field :filename %>
+    </div>
 
-  <div>
-    <%= form.label :tags %>
-    <%= form.text_field :tags %>
-  </div>
+    <div>
+      <%= form.label "标签" %>
+      <%= form.text_field :tags %>
+    </div>
 
-  <div>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    <div>
+      <%= form.label "描述" %>
+      <%= form.text_area :description %>
+    </div>
+    <!--
+    使用图片链接也可以作为上传图片，暂时不使用
+    <div>
+      <%= form.label "图片链接" %>
+      <%= form.text_area :image_url %>
+    </div>
+    -->
 
-  <div>
-    <%= form.label :image_data %>
-    <%= form.file_field :image_data %>
-  </div>
+    <div>
+      <%= form.label "上传图片" %>
+      <%= form.file_field :image_data %>
+    </div>
 
-  <div>
-    <%= form.submit "Upload" %>
-  </div>
-<% end %>
+    <div>
+      <%= form.submit "上传图片" %>
+    </div>
+  <% end %>
+</div>

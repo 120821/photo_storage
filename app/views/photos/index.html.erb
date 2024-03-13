@@ -2,25 +2,75 @@
   <%= link_to "上传", new_photo_path %>
   <div class="search-bar">
     <form>
-      <input type="text" placeholder="搜索图片">
+      <input type="text" id="searchInput" placeholder="搜索图片">
       <button type="submit">搜索</button>
     </form>
-    热门搜索： 壁纸 头像 手抄报 高清美图
+    <div class="suggestions-container">
+      <div class="suggestions" id="suggestions"></div>
+      <div class="popular-searches" id="popularSearches">
+        热门搜索：壁纸 头像 手抄报 高清美图
+      </div>
+    </div>
   </div>
   <div class="image-grid">
     <% @photos.each do |photo| %>
       <div class="image-item">
-        <%= image_tag photo.image_data.url, style: 'max-width: 330px;' %>
+        <%#= image_tag photo.image_data.url, style: 'max-width: 330px;' %>
+        <% if photo.image_data.present? %>
+          <%= image_tag photo.image_data.url, style: 'max-width: 330px;' %>
+        <% else %>
+          <p>No image available</p>
+        <% end %>
 
         <div class="image-info">
           <h4><%= photo.filename %></h4>
           <p>标签： <%= photo.tags %></p>
           <p>描述： <%= photo.description %></p>
-          <!--
-          <p>上传时间： <%= photo.upload_time %></p>
-          -->
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const suggestionsElement = document.getElementById('suggestions');
+  const popularSearchesElement = document.getElementById('popularSearches');
+
+  searchInput.addEventListener('input', handleInputChange);
+
+  function handleInputChange() {
+    const inputText = searchInput.value;
+    const suggestions = generateSuggestions(inputText);
+
+    if (suggestions.length === 0) {
+      suggestionsElement.style.display = 'none';
+      popularSearchesElement.style.display = 'block';
+    } else {
+      suggestionsElement.style.display = 'block';
+      popularSearchesElement.style.display = 'none';
+    }
+
+    updateSuggestionsDisplay(suggestions);
+  }
+
+  function generateSuggestions(inputText) {
+    // 根据输入的内容生成提示词语的逻辑
+    // 例如，从预定义的词语列表中筛选匹配的词语
+    const predefinedSuggestions = ['壁纸', '头像', '手抄报', '高清美图'];
+    const suggestions = predefinedSuggestions.filter(suggestion =>
+      suggestion.toLowerCase().startsWith(inputText.toLowerCase())
+    );
+    return suggestions;
+  }
+
+  function updateSuggestionsDisplay(suggestions) {
+    suggestionsElement.innerHTML = '';
+
+    suggestions.forEach(suggestion => {
+      const suggestionElement = document.createElement('div');
+      suggestionElement.textContent = suggestion;
+      suggestionsElement.appendChild(suggestionElement);
+    });
+  }
+</script>

@@ -8,6 +8,7 @@ gem "rails", "~> 7.0.8"
 gem 'pg'
 gem 'mini_magick'
 gem 'carrierwave'
+gem 'httparty'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

@@ -23,7 +23,7 @@ class PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:filename, :tags, :description, :upload_time, :location, :image_data)
+    params.require(:photo).permit(:filename, :tags, :description, :upload_time, :location, :image_url, :image)
   end
 
   def save_uploaded_file(uploaded_file)
